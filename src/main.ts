@@ -1,4 +1,6 @@
 import { IsometricCanvas, IsometricRectangle, PlaneView } from '@elchininet/isometric';
+import { Demo1 } from './demo/demo1';
+import { Demo2 } from './demo/demo2';
 
 class IsometricDemo {
 
@@ -9,34 +11,29 @@ class IsometricDemo {
       container,
       backgroundColor: '#CCC',
       scale: 120,
-      width: 500,
-      height: 320
+      width: 760,
+      height: 440
     });
 
-    const commonProps = { height: 1, width: 1 };
-    const topPiece = new IsometricRectangle({ ...commonProps, planeView: PlaneView.TOP });
-    const rightPiece = new IsometricRectangle({ ...commonProps, planeView: PlaneView.FRONT });
-    const leftPiece = new IsometricRectangle({ ...commonProps, planeView: PlaneView.SIDE });
-
-    topPiece.top = 1;
-    topPiece.addEventListener('click', () => {
-      topPiece.fillColor = topPiece.fillColor === 'white' ? '#EEE' : 'white';
-    }, true);
-
-    rightPiece.right = 1;
-    rightPiece.addEventListener('click', () => {
-      rightPiece.fillColor = rightPiece.fillColor === 'white' ? '#EEE' : 'white';
-    }, true);
-
-    leftPiece.left = 1;
-    leftPiece.addEventListener('click', () => {
-      leftPiece.fillColor = leftPiece.fillColor === 'white' ? '#EEE' : 'white';
-    }, true);
+    const demo1 = Demo1.Init();
 
     cube
-      .addChild(topPiece)
-      .addChild(rightPiece)
-      .addChild(leftPiece);
+      .addChild(demo1);
+
+    const demo2 = Demo2.Init();
+
+    demo2.top = 2;
+    demo2.left = 2;
+    cube
+      .addChild(demo2);
+
+    cube.addEventListener('click', function () {
+      if (cube.animated) {
+        cube.pauseAnimations();
+      } else {
+        cube.resumeAnimations();
+      }
+    });
   }
 }
 
