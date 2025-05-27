@@ -1,4 +1,4 @@
-import { IsometricGroup, IsometricPath, IsometricRectangle, IsometricPentagram, PlaneView, SVGRectangleAnimation, SVGPathAnimation } from '@elchininet/isometric';
+import { IsometricGroup, IsometricPath } from '@elchininet/isometric';
 
 export class Grid {
 

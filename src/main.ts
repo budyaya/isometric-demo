@@ -1,5 +1,6 @@
 import { IsometricCanvas, IsometricRectangle, PlaneView } from '@elchininet/isometric';
 import { Grid } from './demo/grid';
+import { Ball } from './demo/ball';
 import { Demo1 } from './demo/demo1';
 import { Demo2 } from './demo/demo2';
 
@@ -11,9 +12,9 @@ class IsometricDemo {
     const cube = new IsometricCanvas({
       container,
       backgroundColor: '#CCC',
-      scale: 100,
-      width: 760,
-      height: 440
+      scale: 60,
+      width: 1024,
+      height: 600
     });
 
     cube
@@ -26,7 +27,7 @@ class IsometricDemo {
 
     const demo2 = Demo2.Init();
 
-    demo2.top = 2;
+    // demo2.top = 2;
     demo2.left = 2;
     cube
       .addChild(demo2);
@@ -38,6 +39,12 @@ class IsometricDemo {
         cube.resumeAnimations();
       }
     });
+
+    const circle = Ball.Init();
+    circle.left = 2;
+    circle.right = 4;
+    cube
+      .addChild(circle);
   }
 }
 
