@@ -1,4 +1,5 @@
 import { IsometricCanvas, IsometricRectangle, PlaneView } from '@elchininet/isometric';
+import { Grid } from './demo/grid';
 import { Demo1 } from './demo/demo1';
 import { Demo2 } from './demo/demo2';
 
@@ -10,10 +11,13 @@ class IsometricDemo {
     const cube = new IsometricCanvas({
       container,
       backgroundColor: '#CCC',
-      scale: 120,
+      scale: 100,
       width: 760,
       height: 440
     });
+
+    cube
+      .addChild(Grid.Init());
 
     const demo1 = Demo1.Init();
 
